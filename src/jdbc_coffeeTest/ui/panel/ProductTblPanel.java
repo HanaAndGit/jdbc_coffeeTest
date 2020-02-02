@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -24,6 +25,15 @@ public class ProductTblPanel extends JPanel {
 
 		initialize();
 	}
+	
+	
+	
+	public JTable getTable() {
+		return table;
+	}
+
+
+
 	private void initialize() {
 		setLayout(new BorderLayout(0, 0));
 		
@@ -33,18 +43,15 @@ public class ProductTblPanel extends JPanel {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		ArrayList<Product> prdList = new ArrayList<Product>();
-		prdList.add(new Product("A001", "아메리카노"));
-		prdList.add(new Product("A002", "카푸치노"));
-		prdList.add(new Product("A003", "헤이즐넛"));
 		
-		loadData(prdList);
+		
 		
 	}
 	
 	//2. ArrayList에 model 부착
-	private void loadData(ArrayList<Product> prdList) {
+	public void loadData(ArrayList<Product> prdList) {
 		model = new NotEditableModel(getRows(prdList), getColNames());
+		table.setModel(model);
 		
 	}
 	
@@ -114,6 +121,10 @@ public class ProductTblPanel extends JPanel {
 		return new Product(code, name);
 	}
 	
+	public void setPopupMenu(JPopupMenu popupMenu) {
+		scrollPane.setComponentPopupMenu(popupMenu);
+		table.setComponentPopupMenu(popupMenu);
+	}
 	
 
 
