@@ -9,16 +9,16 @@ import java.util.Properties;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+
 public class Hikari_DataSource {
-	public Hikari_DataSource(HikariConfig cfg) {
-		// TODO Auto-generated constructor stub
-	}
-
-
+	
 	private static HikariDataSource ds;
 	private static int minIdle = 10;
 	private static int maxPoolSize = 100;
 	
+	public Hikari_DataSource(HikariConfig cfg) {
+		// TODO Auto-generated constructor stub
+	}
 	
 	static {
 		try(InputStream is = ClassLoader.getSystemResourceAsStream("hikaricp.properties")){
