@@ -21,6 +21,8 @@ public class Hikari_Main {
 			for (Product p : list) {
 				System.out.println(p);
 			}
+			
+			//System.out.println(con);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
